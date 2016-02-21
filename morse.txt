@@ -1,0 +1,40 @@
+import java.awt.*;
+import java.awt.event.*; 
+import javax.swing.*;
+
+public class morse
+{
+	public void frame()
+	{
+		//FrameInitialization
+		JFrame frame = new JFrame("Morse");
+		
+		//Label
+		JLabel lable = new JLabel("Enter the path of directory");
+		lable.setBounds(0,0,200,20);
+		frame.add(lable);
+		
+		//TextField
+		JTextField txt = new JTextField();
+		txt.setBounds(0,20,300,20);
+		txt.setColumns(10);
+		frame.add(txt);
+		
+		//Button
+		JButton btn= new JButton("Browse");
+                btn.setBounds(305,20,90,20);
+		frame.getContentPane().add(btn);
+		
+		//FrameValues
+		frame.setSize(500,500);
+		frame.setLayout(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+	}
+	
+	public static void main(String arg[])
+	{
+		morse m = new morse();
+		m.frame();
+	}
+}
