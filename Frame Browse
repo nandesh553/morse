@@ -1,0 +1,61 @@
+import java.awt.*;
+import java.awt.event.*; 
+import javax.swing.*;
+
+public class morse
+{
+	public void frame()
+	{
+		//FrameInitialization
+		JFrame frame = new JFrame("Morse");
+		
+		//Label
+		JLabel lable = new JLabel("Enter the path of directory");
+		lable.setBounds(0,0,200,20);
+		frame.getContentPane().add(lable);
+		
+		//TextField
+		JTextField txt = new JTextField();
+		txt.setBounds(0,20,300,20);
+		frame.add(txt);
+		txt.setColumns(10);
+		
+		//Button
+		JButton btn= new JButton("Browse");
+        btn.setBounds(305,20,90,20);
+		frame.getContentPane().add(btn);
+		
+		//FrameValues
+		frame.setSize(500,500);
+		frame.setLayout(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		
+		btn.addActionListener(new ActionListener() 
+	    {
+            public void actionPerformed(ActionEvent e) 
+			{
+                JFileChooser fileChooser = new JFileChooser();
+ 
+                // For Directory
+                fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+ 
+                // For File
+                fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+ 
+                fileChooser.setAcceptAllFileFilterUsed(false);
+                int rVal = fileChooser.showOpenDialog(null);
+                if (rVal == JFileChooser.APPROVE_OPTION) 
+		        {
+                    txt.setText(fileChooser.getSelectedFile().toString());
+	      	    }
+            }
+        });
+	}
+	
+	public static void main(String arg[])
+	{
+		morse m = new morse();
+		m.frame();
+	}
+}
